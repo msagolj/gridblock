@@ -1,0 +1,9 @@
+slug,Background Color,Foreground Color,Emphasis Color,Cell Background Color,Cell Border,Border Edges
+sample1,#f4f4f4,#071d49,#035fe6,#ffffff,no-border,
+sample2,#071d49,#ffffff,#72a8ff,#142e5c,1px solid #7185aa,
+sample3,#f1f3ff,#071d49,#035fe6,#ffffff,1px solid #cbd4e4,
+muted-on-white,,,#0066f5,white,,
+muted-bordered,,,#666b7a,,1px solid lightgrey,bottom
+light-blue-bg,,,,#f1f3ff,,
+navy-bg,,white,,#071d49,,
+no-border,,,,,no-border,

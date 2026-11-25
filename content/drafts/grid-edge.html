@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grid edge cases</title>
+    <script src="/scripts/aem.js" type="module"></script>
+    <script src="/scripts/scripts.js" type="module"></script>
+    <link rel="stylesheet" href="/styles/styles.css">
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div><h1>Grid edge cases</h1></div>
+      <div>
+        <h2>Optional cells and overflow items</h2>
+        <div class="grid">
+          <div><div><h3>Single content cell</h3><p>No secondary cell is authored.</p></div></div>
+          <div><div><p>Empty supporting cell</p></div><div> </div></div>
+          <div><div></div><div><p>Only supporting content</p></div></div>
+          <div><div><p>A long value</p><p><strong>123456789012345678901234567890</strong></p></div><div></div></div>
+          <div><div><p>Item E</p></div><div></div></div>
+          <div><div><p>Item F</p></div><div></div></div>
+          <div><div><p>Item G</p></div><div></div></div>
+          <div><div><p>Item H</p></div><div></div></div>
+          <div><div><p>Overflow item I</p></div><div></div></div>
+          <div><div><p>Overflow item J</p></div><div></div></div>
+        </div>
+      </div>
+      <div>
+        <h2>Preset inherited from the section</h2>
+        <div class="grid">
+          <div><div><h3>Introduction</h3><p>The section selects the facts-right preset.</p></div></div>
+          <div><div><p>Item B</p></div></div>
+          <div><div><p>Item C</p></div></div>
+          <div><div><p>Item D</p></div></div>
+          <div><div><p>Item E</p></div></div>
+        </div>
+        <div class="section-metadata"><div><div>Style</div><div>facts-right</div></div></div>
+      </div>
+      <div>
+        <h2>Empty grid</h2>
+        <div class="grid"></div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

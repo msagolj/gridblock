@@ -1,0 +1,146 @@
+{
+  "definitions": [
+    {
+      "title": "Grid",
+      "id": "grid",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Grid",
+              "model": "grid",
+              "filter": "grid",
+              "classes": "default"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Grid Content Item",
+      "id": "grid-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Grid Content Item",
+              "model": "grid-item"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Grid Image Item",
+      "id": "grid-image-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Grid Image Item",
+              "model": "grid-image-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "grid",
+      "fields": [
+        {
+          "component": "select",
+          "name": "classes",
+          "label": "Layout preset",
+          "valueType": "string",
+          "value": "default",
+          "options": [
+            {
+              "name": "Default",
+              "value": "default"
+            },
+            {
+              "name": "Spotlight",
+              "value": "spotlight"
+            },
+            {
+              "name": "Tiles",
+              "value": "tiles"
+            },
+            {
+              "name": "Spotlight 2",
+              "value": "spotlight-2"
+            },
+            {
+              "name": "Facts right",
+              "value": "facts-right"
+            },
+            {
+              "name": "Spotlight large",
+              "value": "spotlight-large"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grid-item",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "text",
+          "label": "Main content",
+          "valueType": "string",
+          "value": ""
+        },
+        {
+          "component": "richtext",
+          "name": "supporting",
+          "label": "Supporting content",
+          "description": "Optional second content region, such as a list of links.",
+          "valueType": "string",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "grid-image-item",
+      "fields": [
+        {
+          "component": "reference",
+          "name": "image",
+          "label": "Image",
+          "valueType": "string",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "name": "imageAlt",
+          "label": "Alternative text",
+          "valueType": "string",
+          "value": ""
+        },
+        {
+          "component": "richtext",
+          "name": "text",
+          "label": "Content",
+          "valueType": "string",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "grid",
+      "components": [
+        "grid-item",
+        "grid-image-item"
+      ]
+    }
+  ]
+}

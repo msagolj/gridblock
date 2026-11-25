@@ -15,7 +15,8 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "grid"
     ]
   },
   {
@@ -37,6 +38,13 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "grid",
+    "components": [
+      "grid-item",
+      "grid-image-item"
     ]
   }
 ]

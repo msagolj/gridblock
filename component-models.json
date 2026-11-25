@@ -190,6 +190,90 @@
     ]
   },
   {
+    "id": "grid",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Layout preset",
+        "valueType": "string",
+        "value": "default",
+        "options": [
+          {
+            "name": "Default",
+            "value": "default"
+          },
+          {
+            "name": "Spotlight",
+            "value": "spotlight"
+          },
+          {
+            "name": "Tiles",
+            "value": "tiles"
+          },
+          {
+            "name": "Spotlight 2",
+            "value": "spotlight-2"
+          },
+          {
+            "name": "Facts right",
+            "value": "facts-right"
+          },
+          {
+            "name": "Spotlight large",
+            "value": "spotlight-large"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "grid-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Main content",
+        "valueType": "string",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "supporting",
+        "label": "Supporting content",
+        "description": "Optional second content region, such as a list of links.",
+        "valueType": "string",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "grid-image-item",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "valueType": "string",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alternative text",
+        "valueType": "string",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Content",
+        "valueType": "string",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "hero",
     "fields": [
       {

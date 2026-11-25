@@ -1,0 +1,7 @@
+Slug,Template Areas,Template Areas Tablet,Template Areas Mobile,Color Preset,Overrides,Font Size
+default,abcd efgh,,,sample1,,
+spotlight,abde ccc.,ab cc de,,sample2,,
+tiles,abcd eeff,ab cd ee ff,,sample3,,
+spotlight-2,abde ccc.,ab cc de,,muted-on-white,"{""a"":""light-blue-bg"",""e"":""navy-bg""}",
+facts-right,"""a a b c"" ""a a d e""","""a a"" ""a a"" ""b c"" ""d e""",,muted-bordered,"{""a"":""no-border""}",small
+spotlight-large,"""a c d f"" ""b c e f"" ""g g g g""","""a c"" ""b c"" ""d f"" ""e f"" ""g g""",,,"{""a"":""light-blue-bg"",""f"":""light-blue-bg""}",medium
