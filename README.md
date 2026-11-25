@@ -140,6 +140,13 @@ The native test page `/content/gridblock/grid-placeholderitems` contains empty,
 partially populated, empty-item, overflow, and complete-grid scenarios. The original
 `grid-demo` page and the Grid spreadsheet are unchanged.
 
+- [Try placeholderitems in UE](https://author-p130360-e1368254.adobeaemcloud.com/ui#/@sitesinternal/aem/universal-editor/canvas/author-p130360-e1368254.adobeaemcloud.com/content/gridblock/grid-placeholderitems.html?ref=placeholderitems)
+- [Compare the same page using main](https://author-p130360-e1368254.adobeaemcloud.com/ui#/@sitesinternal/aem/universal-editor/canvas/author-p130360-e1368254.adobeaemcloud.com/content/gridblock/grid-placeholderitems.html)
+
+For this embedded `/ui#...` editor URL, append `?ref=placeholderitems` to the canvas
+page URL as shown above. Putting it only on the outer `/ui` URL does not forward the
+override to the canvas in this environment.
+
 ### Local development
 
 ```sh
