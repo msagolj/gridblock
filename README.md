@@ -69,15 +69,15 @@ The DA-specific configuration-tool messaging is not included in this port.
 The native AEM Spreadsheet page is `/content/gridblock/styles/grid`, titled **Grid**.
 Its sheets have independent columns:
 
-| Sheet | Rows | Import backup |
-|---|---|---|
-| `grid-styles` | 6 | [grid-styles.csv](content/styles/grid-styles.csv) |
-| `color-presets` | 8 | [color-presets.csv](content/styles/color-presets.csv) |
+| Sheet | Rows |
+|---|---|
+| `grid-styles` | 6 |
+| `color-presets` | 8 |
 
 Select the appropriate sheet in AEM's spreadsheet editor before editing or importing
 its CSV. Preview the **Grid** page and reload the consuming page to pick up changes.
-The CSV backups preserve the initial column headings and values; they were imported
-through AEM's [native CSV import API](https://www.aem.live/docs/authoring-tabular-data#importing-spreadsheet-data).
+For CSV import/export, use the spreadsheet editor's controls or AEM's
+[native CSV import API](https://www.aem.live/docs/authoring-tabular-data#importing-spreadsheet-data).
 The workbook is previewed at `/styles/grid.json`, not published live.
 No custom path mappings or AEM components were needed.
 
@@ -103,8 +103,8 @@ adding its slug to the model's options. After changing model partials, run
 `npm run build:json` to regenerate the root definitions, models, and filters.
 
 The updated code must be available to the AEM site's configured branch before the
-components can be added in cloud Universal Editor. Local fixture pages validate
-the runtime, but do not validate native AEM serialization or UE editing.
+components can be added in cloud Universal Editor. Use the AEM-authored example
+below to validate native serialization and UE editing.
 
 ### AEM example
 
@@ -118,18 +118,11 @@ items, changing layout presets, and editing image alternative text. Each item
 serializes to one row with two cells; alternative text collapses into the image cell.
 The example is previewed only, not published live.
 
-### Local examples
+### Local development
 
 ```sh
 aem up --no-open --no-stop-other --forward-browser-logs
 ```
 
-- http://localhost:3000/docs/library/blocks/grid shows all six reference presets.
-- http://localhost:3000/drafts/grid-edge covers optional cells, overflow items,
-  section-level selection, and an empty grid.
-
-The pages and CSV backups are under `content/`, excluded from Code Sync via `.hlxignore`.
-The AEM CLI serves the HTML examples locally and proxies the workbook JSON from this
-site's preview. There are no local JSON overrides, so previewed spreadsheet edits are
-visible during development. The sample images also come from this site's preview,
-not the reference demo.
+Open http://localhost:3000/grid-demo to view the AEM-authored example with local code.
+The AEM CLI proxies the page content, images, and workbook JSON from this site's preview.
