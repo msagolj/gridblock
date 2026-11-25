@@ -118,6 +118,28 @@ items, changing layout presets, and editing image alternative text. Each item
 serializes to one row with two cells; alternative text collapses into the image cell.
 The example is previewed only, not published live.
 
+### Authoring placeholder preview
+
+The `placeholderitems` branch adds visual hints in Universal Editor edit mode
+(`html.adobe-ue-edit`). Empty grids show the selected layout's missing named areas
+as dashed slots labelled `Item a (not added)`, and existing empty items show
+`Item a (empty)`. Dots remain intentional gaps.
+
+The hints are temporary DOM elements, not AEM components or saved content. Authors
+still use UE's Add menu to choose Content or Image items. Changing presets adds or
+removes only the visual hints; existing items and their models are preserved.
+Items beyond a layout continue below it, as on the main branch.
+
+The helper considers named areas in the preset's desktop, tablet, and explicit
+mobile templates. A blank mobile template stacks the expected slots in authored
+order while editing. UE preview mode uses only actual items, and public EDS pages
+do not create hints. Separate edit-mode layout properties prevent placeholders
+from reserving space when switching to preview mode.
+
+The native test page `/content/gridblock/grid-placeholderitems` contains empty,
+partially populated, empty-item, overflow, and complete-grid scenarios. The original
+`grid-demo` page and the Grid spreadsheet are unchanged.
+
 ### Local development
 
 ```sh

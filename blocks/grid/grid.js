@@ -39,21 +39,56 @@ function areaName(index) {
   return name;
 }
 
-function applyLayout(block, rows, layout, breakpoint) {
-  block.style.setProperty(`--grid-template-areas-${breakpoint}`, layout.template);
-  block.style.setProperty(`--grid-template-columns-${breakpoint}`, `repeat(${layout.columns}, minmax(0, 1fr))`);
+function applyLayout(block, rows, layout, breakpoint, authoring = false) {
+  const suffix = authoring ? `author-${breakpoint}` : breakpoint;
+  block.style.setProperty(`--grid-template-areas-${suffix}`, layout.template);
+  block.style.setProperty(`--grid-template-columns-${suffix}`, `repeat(${layout.columns}, minmax(0, 1fr))`);
   let unplaced = 0;
   rows.forEach((row, index) => {
-    const name = areaName(index);
+    const name = row.dataset.gridPlaceholder || areaName(index);
     const placed = layout.areas.has(name);
     let placement = name;
     if (!placed) {
       placement = `${layout.rows + Math.floor(unplaced / layout.columns) + 1} / auto / auto / auto`;
       unplaced += 1;
     }
-    row.style.setProperty(`--grid-placement-${breakpoint}`, placement);
-    row.toggleAttribute(`data-stack-${breakpoint}`, !placed || layout.stackAreas.has(name));
+    row.style.setProperty(`--grid-placement-${suffix}`, placement);
+    if (!authoring) {
+      row.toggleAttribute(`data-stack-${breakpoint}`, !placed || layout.stackAreas.has(name));
+    }
   });
+}
+
+function stackedLayout(names) {
+  return {
+    template: names.length ? names.map((name) => `"${name}"`).join(' ') : 'none',
+    rows: names.length,
+    columns: 1,
+    areas: new Set(names),
+    stackAreas: new Set(names),
+  };
+}
+
+function renderPlaceholders(block, rows, desktop, tablet, mobile, mobileValue) {
+  const names = rows.map((row, index) => areaName(index));
+  const templates = mobileValue ? [desktop, tablet, mobile] : [desktop, tablet];
+  const areas = new Set(templates.flatMap((layout) => [...layout.areas])
+    .filter((name) => name !== '.'));
+  const placeholders = [...areas].filter((name) => !names.includes(name)).map((name) => {
+    const placeholder = document.createElement('div');
+    placeholder.classList.add('grid-cell', 'grid-placeholder');
+    placeholder.dataset.gridPlaceholder = name;
+    placeholder.setAttribute('aria-hidden', 'true');
+    return placeholder;
+  });
+  block.append(...placeholders);
+  const previewRows = [...rows, ...placeholders];
+  const previewNames = [...new Set([...names, ...areas])]
+    .sort((a, b) => a.length - b.length || a.localeCompare(b));
+  const previewMobile = mobileValue ? mobile : stackedLayout(previewNames);
+  applyLayout(block, previewRows, desktop, 'desktop', true);
+  applyLayout(block, previewRows, tablet, 'tablet', true);
+  applyLayout(block, previewRows, previewMobile, 'mobile', true);
 }
 
 function applyStyle(block, style) {
@@ -66,9 +101,7 @@ function applyStyle(block, style) {
   }
 }
 
-function renderGrid(block, { layouts, colors }) {
-  const rows = [...block.children];
-  if (!rows.length) return;
+function renderGrid(block, rows, { layouts, colors }, authoring) {
   const section = block.closest('.section');
   const matches = (classes) => layouts.find((token) => (
     token.slug && classes?.contains(toClassName(token.slug))
@@ -102,26 +135,26 @@ function renderGrid(block, { layouts, colors }) {
   const desktop = parseTemplate(desktopValue || DEFAULT_DESKTOP);
   const tablet = tabletValue ? parseTemplate(tabletValue) : desktop;
   const names = rows.map((row, index) => areaName(index));
-  const mobileDefault = {
-    template: names.map((name) => `"${name}"`).join(' '),
-    rows: rows.length,
-    columns: 1,
-    areas: new Set(names),
-    stackAreas: new Set(names),
-  };
-  const mobile = mobileValue ? parseTemplate(mobileValue) : mobileDefault;
+  const mobile = mobileValue ? parseTemplate(mobileValue) : stackedLayout(names);
   if (!desktop || !tablet || !mobile) {
     throw new Error(`Invalid grid template areas for preset ${style.slug || 'default'}`);
   }
-  applyLayout(block, rows, desktop, 'desktop');
-  applyLayout(block, rows, tablet, 'tablet');
-  applyLayout(block, rows, mobile, 'mobile');
+  if (rows.length) {
+    applyLayout(block, rows, desktop, 'desktop');
+    applyLayout(block, rows, tablet, 'tablet');
+    applyLayout(block, rows, mobile, 'mobile');
+  }
+  if (authoring) renderPlaceholders(block, rows, desktop, tablet, mobile, mobileValue);
 }
 
 export default async function decorate(block) {
+  block.querySelectorAll(':scope > [data-grid-placeholder]').forEach((placeholder) => placeholder.remove());
   const rows = [...block.children];
-  if (!rows.length) return;
-  rows.forEach((row) => {
+  const authoring = block.hasAttribute('data-aue-resource')
+    && !!document.querySelector('meta[name="urn:adobe:aue:system:aemconnection"]');
+  block.toggleAttribute('data-grid-authoring', authoring);
+  if (!rows.length && !authoring) return;
+  rows.forEach((row, index) => {
     row.classList.add('grid-cell');
     [...row.children].forEach((column) => {
       const empty = !column.textContent.trim()
@@ -130,7 +163,12 @@ export default async function decorate(block) {
       column.classList.toggle('grid-image-column', !column.textContent.trim()
         && column.querySelectorAll('img').length === 1);
     });
+    if (authoring && [...row.children].every((column) => column.classList.contains('grid-empty-column'))) {
+      row.dataset.gridEmpty = areaName(index);
+    } else {
+      delete row.dataset.gridEmpty;
+    }
   });
 
-  renderGrid(block, await loadTokens());
+  renderGrid(block, rows, await loadTokens(), authoring);
 }

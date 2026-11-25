@@ -212,3 +212,67 @@
     grid-area: var(--grid-placement-desktop);
   }
 }
+
+.grid > .grid-placeholder {
+  display: none;
+}
+
+html.adobe-ue-edit .grid[data-grid-authoring] {
+  --grid-placeholder-min-height: 120px;
+
+  min-height: var(--grid-placeholder-min-height);
+  grid-auto-rows: minmax(var(--grid-placeholder-min-height), auto);
+  grid-template-areas: var(--grid-template-areas-author-mobile);
+  grid-template-columns: var(--grid-template-columns-author-mobile);
+}
+
+html.adobe-ue-edit .grid[data-grid-authoring] > .grid-cell {
+  grid-area: var(--grid-placement-author-mobile);
+}
+
+html.adobe-ue-edit .grid[data-grid-authoring] > .grid-placeholder,
+html.adobe-ue-edit .grid[data-grid-authoring] > [data-grid-empty] {
+  display: grid;
+  place-items: center;
+  min-height: var(--grid-placeholder-min-height);
+  padding: 16px;
+  border: 1px dashed var(--text-color);
+  background-color: var(--light-color);
+  color: var(--text-color);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.4;
+}
+
+html.adobe-ue-edit .grid[data-grid-authoring] > .grid-placeholder {
+  pointer-events: none;
+}
+
+html.adobe-ue-edit .grid[data-grid-authoring] > .grid-placeholder::before {
+  content: 'Item ' attr(data-grid-placeholder) ' (not added)';
+}
+
+html.adobe-ue-edit .grid[data-grid-authoring] > [data-grid-empty]::before {
+  content: 'Item ' attr(data-grid-empty) ' (empty)';
+}
+
+@media (width >= 600px) {
+  html.adobe-ue-edit .grid[data-grid-authoring] {
+    grid-template-areas: var(--grid-template-areas-author-tablet);
+    grid-template-columns: var(--grid-template-columns-author-tablet);
+  }
+
+  html.adobe-ue-edit .grid[data-grid-authoring] > .grid-cell {
+    grid-area: var(--grid-placement-author-tablet);
+  }
+}
+
+@media (width >= 1200px) {
+  html.adobe-ue-edit .grid[data-grid-authoring] {
+    grid-template-areas: var(--grid-template-areas-author-desktop);
+    grid-template-columns: var(--grid-template-columns-author-desktop);
+  }
+
+  html.adobe-ue-edit .grid[data-grid-authoring] > .grid-cell {
+    grid-area: var(--grid-placement-author-desktop);
+  }
+}
