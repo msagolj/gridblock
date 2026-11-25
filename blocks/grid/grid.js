@@ -74,6 +74,9 @@ function renderPlaceholders(block, rows, desktop, tablet, mobile, mobileValue) {
   const templates = mobileValue ? [desktop, tablet, mobile] : [desktop, tablet];
   const areas = new Set(templates.flatMap((layout) => [...layout.areas])
     .filter((name) => name !== '.'));
+  rows.forEach((row, index) => {
+    row.toggleAttribute('data-grid-overflow', !areas.has(names[index]));
+  });
   const placeholders = [...areas].filter((name) => !names.includes(name)).map((name) => {
     const placeholder = document.createElement('div');
     placeholder.classList.add('grid-cell', 'grid-placeholder');
@@ -156,6 +159,7 @@ export default async function decorate(block) {
   if (!rows.length && !authoring) return;
   rows.forEach((row, index) => {
     row.classList.add('grid-cell');
+    row.removeAttribute('data-grid-overflow');
     [...row.children].forEach((column) => {
       const empty = !column.textContent.trim()
         && !column.querySelector('img, picture, video, audio, iframe, svg, canvas, object, embed, input, textarea, select, button, hr');

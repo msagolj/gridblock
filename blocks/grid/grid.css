@@ -255,6 +255,11 @@ html.adobe-ue-edit .grid[data-grid-authoring] > [data-grid-empty]::before {
   content: 'Item ' attr(data-grid-empty) ' (empty)';
 }
 
+html.adobe-ue-edit .grid[data-grid-authoring] > [data-grid-overflow] {
+  outline: 2px solid #d92d20;
+  outline-offset: -2px;
+}
+
 @media (width >= 600px) {
   html.adobe-ue-edit .grid[data-grid-authoring] {
     grid-template-areas: var(--grid-template-areas-author-tablet);
