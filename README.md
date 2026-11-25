@@ -106,6 +106,18 @@ The updated code must be available to the AEM site's configured branch before th
 components can be added in cloud Universal Editor. Local fixture pages validate
 the runtime, but do not validate native AEM serialization or UE editing.
 
+### AEM example
+
+- [Edit grid-demo in Universal Editor](https://author-p130360-e1368254.adobeaemcloud.com/ui#/@sitesinternal/aem/universal-editor/canvas/author-p130360-e1368254.adobeaemcloud.com/content/gridblock/grid-demo.html)
+- [Preview grid-demo](https://main--gridblock--msagolj.aem.page/grid-demo)
+
+The AEM-authored page contains all six presets and 36 items, including both item
+models. It uses standard AEM components and the Grid spreadsheet, without changing
+Index. Use it to exercise adding a Grid to a section, adding/editing/reordering
+items, changing layout presets, and editing image alternative text. Each item
+serializes to one row with two cells; alternative text collapses into the image cell.
+The example is previewed only, not published live.
+
 ### Local examples
 
 ```sh
@@ -121,5 +133,3 @@ The AEM CLI serves the HTML examples locally and proxies the workbook JSON from 
 site's preview. There are no local JSON overrides, so previewed spreadsheet edits are
 visible during development. The sample images also come from this site's preview,
 not the reference demo.
-
-An AEM-authored grid example page is not included yet.
