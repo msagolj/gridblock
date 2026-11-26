@@ -173,7 +173,8 @@ re-seeds or trims existing content.
 
 Both definitions are demonstrated on the [prefilled example in UE](https://author-p130360-e1368254.adobeaemcloud.com/ui#/@sitesinternal/aem/universal-editor/canvas/author-p130360-e1368254.adobeaemcloud.com/content/gridblock/grid-prefilled.html)
 and its [EDS preview](https://main--gridblock--msagolj.aem.page/grid-prefilled).
-The examples were created through the UE Add menu and are previewed only, not live.
+The examples were created through the UE Add menu and filled with workshop content.
+They are previewed only, not live; the creation templates still seed editable placeholders.
 
 ### AEM example
 
@@ -199,14 +200,16 @@ The retained sample pages have distinct purposes:
 |---|---|
 | `/grid-demo` | General gallery of all six layout presets with current item models |
 | `/grid-structured` | Every supported item model and presentation variation |
-| `/grid-prefilled` | Both prefilled definitions with their editable template content |
+| `/grid-prefilled` | Both prefilled definitions filled with workshop content |
 
-The general and structured examples use an invented **Example Workshop** theme.
-Names, figures, and stories are fictional. Their image is an original abstract
+All three pages describe **Edge Workshop**, a fictional programme of hands-on
+Edge Delivery Services sessions for authors and developers. The page copy reads
+as workshop content, without disclaimers or instructions to replace placeholders.
+Their image is an original abstract
 illustration stored at `/content/dam/gridblock/grid-example.png`, not a reference-site
-asset. Prefilled examples retain the placeholder text from the component definitions.
-Each page identifies its content as illustrative. These pages are previewed only,
-not published live.
+asset, with EDS lettering. The prefilled pages contain authored workshop content;
+the component definitions retain their creation templates. These pages are previewed
+only, not published live.
 
 Upload images through the AEM Assets UI or the Cloud Service
 [direct binary upload API](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/admin/developer-reference-material-apis#asset-upload).
