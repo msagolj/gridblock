@@ -180,7 +180,7 @@
   }
 
   .grid .grid-cell:has(> div:not(.grid-empty-column) + div:not(.grid-empty-column)) ul {
-    columns: 2;
+    columns: var(--grid-link-columns, 2);
     column-gap: 24px;
     margin: auto 0;
   }
@@ -211,6 +211,18 @@
   .grid > .grid-cell {
     grid-area: var(--grid-placement-desktop);
   }
+}
+
+.grid > .grid-cell:is(.grid-fact, .grid-image-text, .grid-link-list) {
+  overflow-wrap: anywhere;
+}
+
+.grid > .grid-cell.grid-link-list {
+  --grid-link-columns: 240px;
+}
+
+.grid .grid-cell.grid-link-list a:any-link {
+  overflow-wrap: anywhere;
 }
 
 .grid > .grid-cell:is(.image-top, .image-bottom) {
