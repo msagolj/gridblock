@@ -51,7 +51,9 @@
         "cards",
         "columns",
         "fragment",
-        "grid"
+        "grid",
+        "grid-spotlight-large",
+        "grid-facts-right"
       ]
     }
   ]

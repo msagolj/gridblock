@@ -132,6 +132,26 @@ The updated code must be available to the AEM site's configured branch before th
 components can be added in cloud Universal Editor. Use the AEM-authored example
 below to validate native serialization and UE editing.
 
+### Prefilled Grid definitions
+
+The section add menu offers two starting points alongside the empty **Grid**:
+
+| Definition | Selected layout | Initial items |
+|---|---|---|
+| Grid (Spotlight large) | `spotlight-large` | Six Facts (two with Image above selected) and one Link List |
+| Grid (Facts right) | `facts-right` | One generic introduction and four Facts |
+
+Both definitions use the same `grid` model, filter, and renderer. Nested template
+nodes seed seven or five real child items in AEM, in area order, with editable example
+text. Authors choose their own images for the image-enabled Facts; no asset path
+is hardcoded in the definitions. Link List starts with two example links.
+The initial text, values, and links are saved content, so replace them before
+publishing a real page.
+
+Templates apply only when adding a new Grid. Authors can still switch layouts,
+edit item options, and add, remove, or reorder children. Changing the layout never
+re-seeds or trims existing content.
+
 ### AEM example
 
 - [Edit grid-demo in Universal Editor](https://author-p130360-e1368254.adobeaemcloud.com/ui#/@sitesinternal/aem/universal-editor/canvas/author-p130360-e1368254.adobeaemcloud.com/content/gridblock/grid-demo.html)
@@ -147,8 +167,8 @@ The example is previewed only, not published live.
 The dedicated [structured example in UE](https://author-p130360-e1368254.adobeaemcloud.com/ui#/@sitesinternal/aem/universal-editor/canvas/author-p130360-e1368254.adobeaemcloud.com/content/gridblock/grid-structured.html)
 and its [EDS preview](https://main--gridblock--msagolj.aem.page/grid-structured)
 exercise all four models and presentation options without changing the existing demo.
-The example is previewed only, not published live. Prefilled Grid
-definitions and a visual layout-selector extension are separate follow-up work.
+The example is previewed only, not published live. A visual layout-selector extension
+is separate follow-up work.
 
 ### Local development
 

@@ -160,6 +160,177 @@
           }
         },
         {
+          "title": "Grid (Spotlight large)",
+          "id": "grid-spotlight-large",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Grid",
+                  "model": "grid",
+                  "filter": "grid",
+                  "classes": "spotlight-large",
+                  "item_a": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Grid Fact",
+                    "model": "grid-fact",
+                    "classes": "grid-fact",
+                    "classes_layout": "text-only",
+                    "fact_label": "Item A",
+                    "fact_value": "00",
+                    "fact_valueType": "strong",
+                    "fact_description": "<p>Replace with your first fact.</p>"
+                  },
+                  "item_b": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Grid Fact",
+                    "model": "grid-fact",
+                    "classes": "grid-fact",
+                    "classes_layout": "text-only",
+                    "fact_label": "Item B",
+                    "fact_value": "00",
+                    "fact_valueType": "strong",
+                    "fact_description": "<p>Replace with your second fact.</p>"
+                  },
+                  "item_c": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Grid Fact",
+                    "model": "grid-fact",
+                    "classes": "grid-fact",
+                    "classes_layout": "image-top",
+                    "fact_label": "Item C",
+                    "fact_value": "00",
+                    "fact_valueType": "strong",
+                    "fact_description": "<p>Replace this fact and choose an image.</p>"
+                  },
+                  "item_d": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Grid Fact",
+                    "model": "grid-fact",
+                    "classes": "grid-fact",
+                    "classes_layout": "text-only",
+                    "fact_label": "Item D",
+                    "fact_value": "00",
+                    "fact_valueType": "strong",
+                    "fact_description": "<p>Replace with your third fact.</p>"
+                  },
+                  "item_e": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Grid Fact",
+                    "model": "grid-fact",
+                    "classes": "grid-fact",
+                    "classes_layout": "text-only",
+                    "fact_label": "Item E",
+                    "fact_value": "00",
+                    "fact_valueType": "strong",
+                    "fact_description": "<p>Replace with your fourth fact.</p>"
+                  },
+                  "item_f": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Grid Fact",
+                    "model": "grid-fact",
+                    "classes": "grid-fact",
+                    "classes_layout": "image-top",
+                    "fact_label": "Item F",
+                    "fact_value": "00",
+                    "fact_valueType": "strong",
+                    "fact_description": "<p>Replace this fact and choose an image.</p>"
+                  },
+                  "item_g": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Grid Link List",
+                    "model": "grid-link-list",
+                    "classes": "grid-link-list",
+                    "content_label": "Item G",
+                    "content_heading": "Your focus areas",
+                    "content_headingType": "h3",
+                    "content_description": "<p>Introduce your links and replace the examples.</p>",
+                    "links": {
+                      "item0": {
+                        "link": "https://www.aem.live/docs/",
+                        "linkText": "Example documentation link"
+                      },
+                      "item1": {
+                        "link": "https://www.aem.live/developer/",
+                        "linkText": "Example developer link"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Grid (Facts right)",
+          "id": "grid-facts-right",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Grid",
+                  "model": "grid",
+                  "filter": "grid",
+                  "classes": "facts-right",
+                  "item_a": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Grid Content Item",
+                    "model": "grid-item",
+                    "text": "<h3>Your impact by the numbers</h3><p>Replace this introduction with your own content.</p>",
+                    "supporting": ""
+                  },
+                  "item_b": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Grid Fact",
+                    "model": "grid-fact",
+                    "classes": "grid-fact",
+                    "classes_layout": "text-only",
+                    "fact_label": "Item B",
+                    "fact_value": "00",
+                    "fact_valueType": "strong",
+                    "fact_description": "<p>Replace with your first fact.</p>"
+                  },
+                  "item_c": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Grid Fact",
+                    "model": "grid-fact",
+                    "classes": "grid-fact",
+                    "classes_layout": "text-only",
+                    "fact_label": "Item C",
+                    "fact_value": "00",
+                    "fact_valueType": "strong",
+                    "fact_description": "<p>Replace with your second fact.</p>"
+                  },
+                  "item_d": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Grid Fact",
+                    "model": "grid-fact",
+                    "classes": "grid-fact",
+                    "classes_layout": "text-only",
+                    "fact_label": "Item D",
+                    "fact_value": "00",
+                    "fact_valueType": "strong",
+                    "fact_description": "<p>Replace with your third fact.</p>"
+                  },
+                  "item_e": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Grid Fact",
+                    "model": "grid-fact",
+                    "classes": "grid-fact",
+                    "classes_layout": "text-only",
+                    "fact_label": "Item E",
+                    "fact_value": "00",
+                    "fact_valueType": "strong",
+                    "fact_description": "<p>Replace with your fourth fact.</p>"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Grid Content Item",
           "id": "grid-item",
           "plugins": {
