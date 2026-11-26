@@ -442,7 +442,7 @@
           "component": "text",
           "name": "fact_value",
           "label": "Value",
-          "description": "Display text, such as ~50, 90+, $13.8b, or 32.4%.",
+          "description": "Display text, such as 12, 60+, $250k, or 75%.",
           "valueType": "string",
           "required": true
         },

@@ -129,7 +129,7 @@ layout-driven image/text reflow. The renderer also accepts the earlier
 `grid-image-text` styling alias and `grid-image-item` name for existing content.
 
 In Universal Editor, item labels include an identifying content value, for example
-`Grid Fact: Programmes`. The author-only editor support script selects the first
+`Grid Fact: Workshops`. The author-only editor support script selects the first
 non-empty label field, heading, or fact value, in that order. When none is present,
 the original component label remains. Labels update after authoring changes using
 the same pattern as the xwalk [Column Layout example](https://github.com/adobe-rnd/aem-boilerplate-xwalk/pull/72).
@@ -178,9 +178,9 @@ The examples were created through the UE Add menu and are previewed only, not li
 - [Edit grid-demo in Universal Editor](https://author-p130360-e1368254.adobeaemcloud.com/ui#/@sitesinternal/aem/universal-editor/canvas/author-p130360-e1368254.adobeaemcloud.com/content/gridblock/grid-demo.html)
 - [Preview grid-demo](https://main--gridblock--msagolj.aem.page/grid-demo)
 
-The AEM-authored page contains all six presets and 36 items using the original
-generic content and image items. It uses standard AEM components and the Grid spreadsheet, without changing
-Index. Use it to exercise adding a Grid to a section, adding/editing/reordering
+The AEM-authored page contains all six presets and 36 items using the current Fact,
+Link List, Image and Text, and generic Content models. It uses standard AEM components
+and the Grid spreadsheet, without changing Index. Use it to exercise adding a Grid to a section, adding/editing/reordering
 items, changing layout presets, and editing image alternative text. Each item
 serializes to one row with an item-type/options cell and two content cells; decoration
 removes only the options cell. Alternative text collapses into the image cell.
@@ -188,9 +188,30 @@ The example is previewed only, not published live.
 
 The dedicated [structured example in UE](https://author-p130360-e1368254.adobeaemcloud.com/ui#/@sitesinternal/aem/universal-editor/canvas/author-p130360-e1368254.adobeaemcloud.com/content/gridblock/grid-structured.html)
 and its [EDS preview](https://main--gridblock--msagolj.aem.page/grid-structured)
-exercise all four models and presentation options without changing the existing demo.
-The example is previewed only, not published live. A visual layout-selector extension
-is separate follow-up work.
+exercise all four models, the three Fact presentations, both Image and Text positions,
+and a minimal Fact without a label or image.
+
+The retained sample pages have distinct purposes:
+
+| Page | Purpose |
+|---|---|
+| `/grid-demo` | General gallery of all six layout presets with current item models |
+| `/grid-structured` | Every supported item model and presentation variation |
+| `/grid-prefilled` | Both prefilled definitions with their editable template content |
+
+The general and structured examples use an invented **Example Workshop** theme.
+Names, figures, and stories are fictional. Their image is an original abstract
+illustration stored at `/content/dam/gridblock/grid-example.png`, not a reference-site
+asset. Prefilled examples retain the placeholder text from the component definitions.
+Each page identifies its content as illustrative. These pages are previewed only,
+not published live.
+
+The dedicated `/grid-placeholderitems` page is no longer needed. To demonstrate the
+separate placeholder experiment on any retained page in UE, append
+`?ref=placeholderitems` to the canvas page URL, after its hash route. For example:
+[structured page with the experimental branch](https://author-p130360-e1368254.adobeaemcloud.com/ui#/@sitesinternal/aem/universal-editor/canvas/author-p130360-e1368254.adobeaemcloud.com/content/gridblock/grid-structured.html?ref=placeholderitems).
+The branch is not merged into main; a visual layout-selector extension remains
+separate follow-up work.
 
 ### Local development
 
