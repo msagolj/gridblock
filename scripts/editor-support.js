@@ -12,6 +12,19 @@ import { decorateButtons, decorateMain } from './scripts.js';
 
 let promiseChanges$ = Promise.resolve();
 
+function labelGridItems(main) {
+  main?.querySelectorAll('.grid > [data-aue-resource][data-aue-label]').forEach((item) => {
+    const baseLabel = item.dataset.gridItemLabel || item.dataset.aueLabel;
+    item.dataset.gridItemLabel = baseLabel;
+    const identifier = [
+      item.querySelector('[data-aue-prop$="_label"]'),
+      item.querySelector('h1, h2, h3, h4, h5, h6'),
+      item.querySelector('[data-aue-prop$="_value"]'),
+    ].map((element) => element?.textContent.trim().replace(/\s+/g, ' ')).find(Boolean);
+    item.dataset.aueLabel = identifier ? `${baseLabel}: ${identifier}` : baseLabel;
+  });
+}
+
 async function applyChanges(event) {
   await promiseChanges$;
 
@@ -109,7 +122,11 @@ function attachEventListeners(main) {
     event.stopPropagation();
     promiseChanges$ = applyChanges(event);
     const applied = await promiseChanges$;
-    if (!applied) window.location.reload();
+    if (applied) {
+      labelGridItems(document.querySelector('main'));
+    } else {
+      window.location.reload();
+    }
   }));
 }
 
@@ -122,3 +139,5 @@ decorateRichtext();
 // for new richtext-instrumented elements. this happens for example when using experimentation.
 const observer = new MutationObserver(() => decorateRichtext());
 observer.observe(document, { attributeFilter: ['data-richtext-prop'], subtree: true });
+
+labelGridItems(document.querySelector('main'));

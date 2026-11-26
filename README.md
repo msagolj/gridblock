@@ -128,6 +128,14 @@ Its new fields are optional. Items without presentation options keep the origina
 layout-driven image/text reflow. The renderer also accepts the earlier
 `grid-image-text` styling alias and `grid-image-item` name for existing content.
 
+In Universal Editor, item labels include an identifying content value, for example
+`Grid Fact: Programmes`. The author-only editor support script selects the first
+non-empty label field, heading, or fact value, in that order. When none is present,
+the original component label remains. Labels update after authoring changes using
+the same pattern as the xwalk [Column Layout example](https://github.com/adobe-rnd/aem-boilerplate-xwalk/pull/72).
+These are dynamic `data-aue-label` values only: item names, saved properties, layout
+options, and published markup are unchanged.
+
 The Grid container has only a `classes` selector:
 its layout preset becomes a block option, not an extra content row. Colors remain
 configured by the selected preset's spreadsheet row.
