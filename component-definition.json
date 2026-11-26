@@ -175,15 +175,53 @@
           }
         },
         {
-          "title": "Grid Image Item",
+          "title": "Grid Image and Text",
           "id": "grid-image-item",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "name": "Grid Image Item",
-                  "model": "grid-image-item"
+                  "name": "Grid Image and Text",
+                  "model": "grid-image-item",
+                  "classes": "grid-image-text",
+                  "classes_layout": "image-top",
+                  "text_headingType": "h3"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Grid Fact",
+          "id": "grid-fact",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Grid Fact",
+                  "model": "grid-fact",
+                  "classes": "grid-fact",
+                  "classes_layout": "text-only",
+                  "fact_valueType": "strong"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Grid Link List",
+          "id": "grid-link-list",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Grid Link List",
+                  "model": "grid-link-list",
+                  "classes": "grid-link-list",
+                  "content_headingType": "h3"
                 }
               }
             }

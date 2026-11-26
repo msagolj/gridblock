@@ -44,7 +44,9 @@
     "id": "grid",
     "components": [
       "grid-item",
-      "grid-image-item"
+      "grid-image-item",
+      "grid-fact",
+      "grid-link-list"
     ]
   }
 ]

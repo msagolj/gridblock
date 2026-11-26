@@ -212,3 +212,59 @@
     grid-area: var(--grid-placement-desktop);
   }
 }
+
+.grid > .grid-cell:is(.image-top, .image-bottom) {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.grid > .grid-cell:is(.image-top, .image-bottom) > div {
+  flex: none;
+  padding: var(--grid-cell-padding);
+}
+
+.grid > .grid-cell:is(.image-top, .image-bottom) > .grid-image-column {
+  display: block;
+  padding: 0;
+}
+
+.grid > .grid-cell:is(.image-top, .image-bottom) > .grid-image-column img {
+  display: block;
+  position: static;
+  width: 100%;
+  height: auto;
+}
+
+.grid > .grid-cell.image-bottom > .grid-image-column {
+  order: 1;
+}
+
+.grid > .grid-cell.grid-fact.text-only {
+  display: block;
+  padding: var(--grid-cell-padding);
+}
+
+.grid > .grid-cell.grid-fact.text-only > div {
+  padding: 0;
+}
+
+.grid > .grid-cell.grid-fact.text-only > .grid-image-column {
+  display: none;
+}
+
+.grid .grid-cell:is(.grid-fact, .grid-image-text, .grid-link-list) p:first-child {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.grid .grid-cell:is(.grid-fact, .grid-image-text, .grid-link-list) > .grid-item-body > p:first-child:has(~ :is(h2, h3, h4, h5, h6), ~ p > strong) {
+  margin-bottom: 32px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}

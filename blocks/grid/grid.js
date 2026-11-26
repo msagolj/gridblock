@@ -39,6 +39,14 @@ function areaName(index) {
   return name;
 }
 
+function decorateItemOptions(row) {
+  if (row.children.length !== 3) return;
+  const options = row.firstElementChild;
+  const classes = options.textContent.split(',').map(toClassName).filter(Boolean);
+  row.classList.add(...classes);
+  options.remove();
+}
+
 function applyLayout(block, rows, layout, breakpoint) {
   block.style.setProperty(`--grid-template-areas-${breakpoint}`, layout.template);
   block.style.setProperty(`--grid-template-columns-${breakpoint}`, `repeat(${layout.columns}, minmax(0, 1fr))`);
@@ -122,6 +130,7 @@ export default async function decorate(block) {
   const rows = [...block.children];
   if (!rows.length) return;
   rows.forEach((row) => {
+    decorateItemOptions(row);
     row.classList.add('grid-cell');
     [...row.children].forEach((column) => {
       const empty = !column.textContent.trim()
@@ -129,6 +138,10 @@ export default async function decorate(block) {
       column.classList.toggle('grid-empty-column', empty);
       column.classList.toggle('grid-image-column', !column.textContent.trim()
         && column.querySelectorAll('img').length === 1);
+      if (row.matches('.grid-fact, .grid-image-text, .grid-link-list')) {
+        column.classList.toggle('grid-item-body', !column.classList.contains('grid-image-column')
+          && !empty);
+      }
     });
   });
 
