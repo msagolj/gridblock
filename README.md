@@ -206,6 +206,11 @@ asset. Prefilled examples retain the placeholder text from the component definit
 Each page identifies its content as illustrative. These pages are previewed only,
 not published live.
 
+Upload images through the AEM Assets UI or the Cloud Service
+[direct binary upload API](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/admin/developer-reference-material-apis#asset-upload).
+Complete the upload and wait for asset processing before testing in UE. Preview can
+read the original binary even when author-side image renditions are not yet available.
+
 The dedicated `/grid-placeholderitems` page is no longer needed. To demonstrate the
 separate placeholder experiment on any retained page in UE, append
 `?ref=placeholderitems` to the canvas page URL, after its hash route. For example:
