@@ -105,6 +105,9 @@ text, not headings or numeric-only fields.
 Grid Fact offers **Fact only**, **Image above**, and **Image below**. Image and
 alternative-text inputs are shown conditionally for the image variants. Switching
 to Fact only hides the image in the rendered item without deleting its saved values.
+Fact's conditional image fields use `factImage` and `factImageAlt`, separate from the
+image/text item's unconditional `image` and `imageAlt` inputs. This prevents UE from
+carrying hidden-field state between the two item types.
 Grid Image and Text offers **Above text** and **Below text**.
 Link List entries use a composite multi-field; this project's existing
 `public.xwalk.multi-field.enabled` setting enables semantic list output.

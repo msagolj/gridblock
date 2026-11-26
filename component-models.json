@@ -371,7 +371,7 @@
       },
       {
         "component": "reference",
-        "name": "image",
+        "name": "factImage",
         "label": "Image",
         "valueType": "string",
         "multi": false,
@@ -389,7 +389,7 @@
       },
       {
         "component": "text",
-        "name": "imageAlt",
+        "name": "factImageAlt",
         "label": "Alternative text",
         "valueType": "string",
         "condition": {
