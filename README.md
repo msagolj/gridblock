@@ -128,7 +128,9 @@ Its new fields are optional. Items without presentation options keep the origina
 layout-driven image/text reflow. The renderer also accepts the earlier
 `grid-image-text` styling alias and `grid-image-item` name for existing content.
 
-In Universal Editor, item labels include an identifying content value, for example
+In Universal Editor, Grid labels include the selected layout, for example
+`Grid: Spotlight large`, or `Grid: Default` when no layout option is set.
+Item labels include an identifying content value, for example
 `Grid Fact: Workshops`. The author-only editor support script selects the first
 non-empty label field, heading, or fact value, in that order. When none is present,
 the original component label remains. Labels update after authoring changes using

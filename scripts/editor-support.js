@@ -12,7 +12,14 @@ import { decorateButtons, decorateMain } from './scripts.js';
 
 let promiseChanges$ = Promise.resolve();
 
-function labelGridItems(main) {
+function labelGrids(main) {
+  main?.querySelectorAll('.grid[data-aue-resource][data-aue-label]').forEach((grid) => {
+    const baseLabel = grid.dataset.gridLabel || grid.dataset.aueLabel;
+    grid.dataset.gridLabel = baseLabel;
+    const layout = [...grid.classList].find((name) => !['grid', 'block'].includes(name)) || 'default';
+    const layoutLabel = layout.replace(/-/g, ' ').replace(/^./, (letter) => letter.toUpperCase());
+    grid.dataset.aueLabel = `${baseLabel}: ${layoutLabel}`;
+  });
   main?.querySelectorAll('.grid > [data-aue-resource][data-aue-label]').forEach((item) => {
     const baseLabel = item.dataset.gridItemLabel || item.dataset.aueLabel;
     item.dataset.gridItemLabel = baseLabel;
@@ -123,7 +130,7 @@ function attachEventListeners(main) {
     promiseChanges$ = applyChanges(event);
     const applied = await promiseChanges$;
     if (applied) {
-      labelGridItems(document.querySelector('main'));
+      labelGrids(document.querySelector('main'));
     } else {
       window.location.reload();
     }
@@ -140,4 +147,4 @@ decorateRichtext();
 const observer = new MutationObserver(() => decorateRichtext());
 observer.observe(document, { attributeFilter: ['data-richtext-prop'], subtree: true });
 
-labelGridItems(document.querySelector('main'));
+labelGrids(document.querySelector('main'));
