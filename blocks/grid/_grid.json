@@ -33,7 +33,6 @@
                 "sling:resourceType": "core/franklin/components/block/v1/block/item",
                 "name": "Grid Fact",
                 "model": "grid-fact",
-                "classes": "grid-fact",
                 "classes_layout": "text-only",
                 "fact_label": "Item A",
                 "fact_value": "00",
@@ -44,7 +43,6 @@
                 "sling:resourceType": "core/franklin/components/block/v1/block/item",
                 "name": "Grid Fact",
                 "model": "grid-fact",
-                "classes": "grid-fact",
                 "classes_layout": "text-only",
                 "fact_label": "Item B",
                 "fact_value": "00",
@@ -55,7 +53,6 @@
                 "sling:resourceType": "core/franklin/components/block/v1/block/item",
                 "name": "Grid Fact",
                 "model": "grid-fact",
-                "classes": "grid-fact",
                 "classes_layout": "image-top",
                 "fact_label": "Item C",
                 "fact_value": "00",
@@ -66,7 +63,6 @@
                 "sling:resourceType": "core/franklin/components/block/v1/block/item",
                 "name": "Grid Fact",
                 "model": "grid-fact",
-                "classes": "grid-fact",
                 "classes_layout": "text-only",
                 "fact_label": "Item D",
                 "fact_value": "00",
@@ -77,7 +73,6 @@
                 "sling:resourceType": "core/franklin/components/block/v1/block/item",
                 "name": "Grid Fact",
                 "model": "grid-fact",
-                "classes": "grid-fact",
                 "classes_layout": "text-only",
                 "fact_label": "Item E",
                 "fact_value": "00",
@@ -88,7 +83,6 @@
                 "sling:resourceType": "core/franklin/components/block/v1/block/item",
                 "name": "Grid Fact",
                 "model": "grid-fact",
-                "classes": "grid-fact",
                 "classes_layout": "image-top",
                 "fact_label": "Item F",
                 "fact_value": "00",
@@ -99,7 +93,6 @@
                 "sling:resourceType": "core/franklin/components/block/v1/block/item",
                 "name": "Grid Link List",
                 "model": "grid-link-list",
-                "classes": "grid-link-list",
                 "content_label": "Item G",
                 "content_heading": "Your focus areas",
                 "content_headingType": "h3",
@@ -143,7 +136,6 @@
                 "sling:resourceType": "core/franklin/components/block/v1/block/item",
                 "name": "Grid Fact",
                 "model": "grid-fact",
-                "classes": "grid-fact",
                 "classes_layout": "text-only",
                 "fact_label": "Item B",
                 "fact_value": "00",
@@ -154,7 +146,6 @@
                 "sling:resourceType": "core/franklin/components/block/v1/block/item",
                 "name": "Grid Fact",
                 "model": "grid-fact",
-                "classes": "grid-fact",
                 "classes_layout": "text-only",
                 "fact_label": "Item C",
                 "fact_value": "00",
@@ -165,7 +156,6 @@
                 "sling:resourceType": "core/franklin/components/block/v1/block/item",
                 "name": "Grid Fact",
                 "model": "grid-fact",
-                "classes": "grid-fact",
                 "classes_layout": "text-only",
                 "fact_label": "Item D",
                 "fact_value": "00",
@@ -176,7 +166,6 @@
                 "sling:resourceType": "core/franklin/components/block/v1/block/item",
                 "name": "Grid Fact",
                 "model": "grid-fact",
-                "classes": "grid-fact",
                 "classes_layout": "text-only",
                 "fact_label": "Item E",
                 "fact_value": "00",
@@ -213,7 +202,6 @@
             "template": {
               "name": "Grid Image and Text",
               "model": "grid-image-item",
-              "classes": "grid-image-text",
               "classes_layout": "image-top",
               "text_headingType": "h3"
             }
@@ -231,7 +219,6 @@
             "template": {
               "name": "Grid Fact",
               "model": "grid-fact",
-              "classes": "grid-fact",
               "classes_layout": "text-only",
               "fact_valueType": "strong"
             }
@@ -249,7 +236,6 @@
             "template": {
               "name": "Grid Link List",
               "model": "grid-link-list",
-              "classes": "grid-link-list",
               "content_headingType": "h3"
             }
           }
@@ -299,6 +285,13 @@
     {
       "id": "grid-item",
       "fields": [
+        {
+          "component": "text",
+          "name": "classes",
+          "label": "Item type",
+          "valueType": "string",
+          "hidden": true
+        },
         {
           "component": "richtext",
           "name": "text",

@@ -6,6 +6,10 @@ import {
 
 const TOKEN_URL = '/styles/grid.json';
 const DEFAULT_DESKTOP = '"a b c d" "e f g h"';
+const ITEM_TYPES = [
+  'grid-content-item', 'grid-fact', 'grid-link-list', 'grid-image-and-text',
+  'grid-image-text', 'grid-image-item',
+];
 let tokenRequest;
 
 async function fetchTokens() {
@@ -43,6 +47,7 @@ function decorateItemOptions(row) {
   if (row.children.length !== 3) return;
   const options = row.firstElementChild;
   const classes = options.textContent.split(',').map(toClassName).filter(Boolean);
+  if (!classes.some((name) => ITEM_TYPES.includes(name))) return;
   row.classList.add(...classes);
   options.remove();
 }
@@ -138,7 +143,7 @@ export default async function decorate(block) {
       column.classList.toggle('grid-empty-column', empty);
       column.classList.toggle('grid-image-column', !column.textContent.trim()
         && column.querySelectorAll('img').length === 1);
-      if (row.matches('.grid-fact, .grid-image-text, .grid-link-list')) {
+      if (row.matches('.grid-fact, .grid-image-and-text, .grid-image-text, .grid-image-item, .grid-link-list')) {
         column.classList.toggle('grid-item-body', !column.classList.contains('grid-image-column')
           && !empty);
       }

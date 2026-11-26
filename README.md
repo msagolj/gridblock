@@ -89,15 +89,23 @@ add menu and accepts these four child components:
 
 | Component | Fields | Authored row |
 |---|---|---|
-| Grid Content Item | Main content, optional supporting content (both rich text) | Main content / supporting content |
+| Grid Content Item | Main content, optional supporting content (both rich text) | Item type / main content / supporting content |
 | Grid Fact | Presentation, optional image/alternative text, label, display value, description | Options / image / grouped fact content |
 | Grid Link List | Label, heading/level, introduction, repeatable URL/link-text entries | Options / grouped introduction / links |
 | Grid Image and Text | Image position, image/alternative text, label, heading/level, body text | Options / image / grouped text |
 
-Each child is a standard block item, not a nested block. Typed items produce an
-initial options column through `classes` and `classes_layout`. The renderer applies
+Each child is a standard block item, not a nested block. All item models produce an
+initial item-type/options column through `classes` and, where applicable, `classes_layout`.
+The `classes` fields are hidden and have no default type value. AEM automatically
+includes the normalized item name (for example `grid-content-item` or
+`grid-image-and-text`) in that first cell, alongside selected `classes_*` values.
+Item definitions do not duplicate those names in a `classes` template value.
+Native AEM HTML leaves the options in the cell; it does not apply them as row classes.
+The renderer applies
 those values as classes on the item row and removes only that configuration column,
-leaving two content cells. Generic content items retain their original two-cell model.
+leaving two content cells. It recognizes the options by the item-type token, rather
+than treating every three-cell row as configuration. Legacy rows without an item-type
+cell retain their content, including any empty trailing table-padding cell.
 `image` and `imageAlt` collapse into one image cell. Grouped field names keep the
 label, heading/value, and description together. Fact values render as emphasized
 text, not headings or numeric-only fields.
@@ -117,7 +125,8 @@ columns rather than forcing two columns into a small cell.
 The existing `grid-image-item` id and its `image`, `imageAlt`, and `text` properties
 are preserved, so existing image items remain editable without content migration.
 Its new fields are optional. Items without presentation options keep the original
-layout-driven image/text reflow.
+layout-driven image/text reflow. The renderer also accepts the earlier
+`grid-image-text` styling alias and `grid-image-item` name for existing content.
 
 The Grid container has only a `classes` selector:
 its layout preset becomes a block option, not an extra content row. Colors remain
@@ -165,7 +174,8 @@ The AEM-authored page contains all six presets and 36 items using the original
 generic content and image items. It uses standard AEM components and the Grid spreadsheet, without changing
 Index. Use it to exercise adding a Grid to a section, adding/editing/reordering
 items, changing layout presets, and editing image alternative text. Each item
-serializes to one row with two cells; alternative text collapses into the image cell.
+serializes to one row with an item-type/options cell and two content cells; decoration
+removes only the options cell. Alternative text collapses into the image cell.
 The example is previewed only, not published live.
 
 The dedicated [structured example in UE](https://author-p130360-e1368254.adobeaemcloud.com/ui#/@sitesinternal/aem/universal-editor/canvas/author-p130360-e1368254.adobeaemcloud.com/content/gridblock/grid-structured.html)

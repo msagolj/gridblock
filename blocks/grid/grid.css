@@ -213,7 +213,7 @@
   }
 }
 
-.grid > .grid-cell:is(.grid-fact, .grid-image-text, .grid-link-list) {
+.grid > .grid-cell:is(.grid-fact, .grid-image-and-text, .grid-image-text, .grid-image-item, .grid-link-list) {
   overflow-wrap: anywhere;
 }
 
@@ -265,7 +265,7 @@
   display: none;
 }
 
-.grid .grid-cell:is(.grid-fact, .grid-image-text, .grid-link-list) p:first-child {
+.grid .grid-cell:is(.grid-fact, .grid-image-and-text, .grid-image-text, .grid-image-item, .grid-link-list) p:first-child {
   margin: 0;
   font-size: inherit;
   font-weight: inherit;
@@ -273,7 +273,7 @@
   text-transform: none;
 }
 
-.grid .grid-cell:is(.grid-fact, .grid-image-text, .grid-link-list) > .grid-item-body > p:first-child:has(~ :is(h2, h3, h4, h5, h6), ~ p > strong) {
+.grid .grid-cell:is(.grid-fact, .grid-image-and-text, .grid-image-text, .grid-image-item, .grid-link-list) > .grid-item-body > p:first-child:has(~ :is(h2, h3, h4, h5, h6), ~ p > strong) {
   margin-bottom: 32px;
   font-size: 14px;
   font-weight: 700;

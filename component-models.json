@@ -231,6 +231,13 @@
     "id": "grid-item",
     "fields": [
       {
+        "component": "text",
+        "name": "classes",
+        "label": "Item type",
+        "valueType": "string",
+        "hidden": true
+      },
+      {
         "component": "richtext",
         "name": "text",
         "label": "Main content",
