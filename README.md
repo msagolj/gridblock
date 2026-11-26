@@ -111,6 +111,8 @@ carrying hidden-field state between the two item types.
 Grid Image and Text offers **Above text** and **Below text**.
 Link List entries use a composite multi-field; this project's existing
 `public.xwalk.multi-field.enabled` setting enables semantic list output.
+Structured text wraps within narrow grid areas, and link lists use width-based
+columns rather than forcing two columns into a small cell.
 
 The existing `grid-image-item` id and its `image`, `imageAlt`, and `text` properties
 are preserved, so existing image items remain editable without content migration.
@@ -142,8 +144,10 @@ items, changing layout presets, and editing image alternative text. Each item
 serializes to one row with two cells; alternative text collapses into the image cell.
 The example is previewed only, not published live.
 
-The dedicated `/content/gridblock/grid-structured` page exercises the structured
-models and presentation options without changing the existing demo. Prefilled Grid
+The dedicated [structured example in UE](https://author-p130360-e1368254.adobeaemcloud.com/ui#/@sitesinternal/aem/universal-editor/canvas/author-p130360-e1368254.adobeaemcloud.com/content/gridblock/grid-structured.html)
+and its [EDS preview](https://main--gridblock--msagolj.aem.page/grid-structured)
+exercise all four models and presentation options without changing the existing demo.
+The example is previewed only, not published live. Prefilled Grid
 definitions and a visual layout-selector extension are separate follow-up work.
 
 ### Local development
