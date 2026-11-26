@@ -205,9 +205,11 @@ The retained sample pages have distinct purposes:
 All three pages describe **Edge Workshop**, a fictional programme of hands-on
 Edge Delivery Services sessions for authors and developers. The page copy reads
 as workshop content, without disclaimers or instructions to replace placeholders.
-Their image is an original abstract
-illustration stored at `/content/dam/gridblock/grid-example.png`, not a reference-site
-asset, with EDS lettering. The prefilled pages contain authored workshop content;
+Images reuse the existing DAM assets under `/content/dam/gridblock/`:
+`headless-is-here.png`, `widen-the-talent-pool.png`, `peak-performance.png`,
+`unmatched-speed.png`, and `low-code-way-to-developer-productivity.png`.
+The image-enabled Facts on the prefilled Spotlight large page also have selected
+images. The prefilled pages contain authored workshop content;
 the component definitions retain their creation templates. These pages are previewed
 only, not published live.
 
