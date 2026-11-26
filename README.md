@@ -152,6 +152,10 @@ Templates apply only when adding a new Grid. Authors can still switch layouts,
 edit item options, and add, remove, or reorder children. Changing the layout never
 re-seeds or trims existing content.
 
+Both definitions are demonstrated on the [prefilled example in UE](https://author-p130360-e1368254.adobeaemcloud.com/ui#/@sitesinternal/aem/universal-editor/canvas/author-p130360-e1368254.adobeaemcloud.com/content/gridblock/grid-prefilled.html)
+and its [EDS preview](https://main--gridblock--msagolj.aem.page/grid-prefilled).
+The examples were created through the UE Add menu and are previewed only, not live.
+
 ### AEM example
 
 - [Edit grid-demo in Universal Editor](https://author-p130360-e1368254.adobeaemcloud.com/ui#/@sitesinternal/aem/universal-editor/canvas/author-p130360-e1368254.adobeaemcloud.com/content/gridblock/grid-demo.html)
