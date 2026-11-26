@@ -123,6 +123,8 @@ carrying hidden-field state between the two item types.
 Grid Image and Text offers **Above text** and **Below text**.
 Link List entries use a composite multi-field; this project's existing
 `public.xwalk.multi-field.enabled` setting enables semantic list output.
+Each entry requires a URL; Link text is optional. When Link text is empty, AEM
+uses the URL as the link label.
 Structured text wraps within narrow grid areas, and link lists use width-based
 columns rather than forcing two columns into a small cell.
 
