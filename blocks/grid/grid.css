@@ -32,6 +32,10 @@
   color: var(--grid-foreground-color, var(--text-color));
 }
 
+.grid > .grid-cell:not(:has(> .grid-image-column)) {
+  grid-auto-rows: auto;
+}
+
 .grid > .grid-cell[data-border-placement="bottom"] {
   border-top: 0;
   border-right: 0;

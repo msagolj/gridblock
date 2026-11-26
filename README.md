@@ -59,6 +59,10 @@ Desktop starts at 1200px, tablet at 600px, and mobile defaults to one item per r
 An omitted tablet template inherits desktop. Items beyond a template are placed below it.
 Only the content's visual placement changes; DOM, keyboard, and reading order stay unchanged.
 
+When an item's content cells stack, text-only rows size to their content rather than
+stretching to equal heights. Legacy image/text stacks keep equal internal rows so
+their absolutely positioned images retain space.
+
 The optional `Overrides` cell maps area names to color preset slugs, for example
 `{"a":"light-blue-bg","f":"navy-bg"}`. Font size accepts `small`, `medium`, or `large`.
 Style presets, templates, and CSS values are validated; invalid settings raise an error.
